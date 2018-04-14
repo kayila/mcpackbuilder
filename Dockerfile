@@ -19,7 +19,7 @@ RUN ./gradlew clean build
 
 FROM alpine:latest
 
-RUN apk add --no-cache openjdk8-jre sed git
+RUN apk add --no-cache openjdk8-jre sed git openssh-client
 
 RUN mkdir -p /launcher-tools /output /input
 
