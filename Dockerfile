@@ -19,9 +19,11 @@ RUN ./gradlew clean build
 
 FROM alpine:latest
 
-RUN apk add --no-cache openjdk8-jre
+RUN apk add --no-cache openjdk8-jre sed git
 
 RUN mkdir -p /launcher-tools /output /input
+
+WORKDIR /input
 
 COPY --from=builder /tmp/build/launcher/launcher-builder/build/libs/launcher-builder-*-all.jar /launcher-tools/launcher-builder.jar
 
